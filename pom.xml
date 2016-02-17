@@ -50,6 +50,7 @@
 			<groupId>org.wildfly.swarm</groupId>
 			<artifactId>jaxrs</artifactId>
 			<version>${version.wildfly-swarm}</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jersey</artifactId> 
 			</dependency> -->
