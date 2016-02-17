@@ -10,12 +10,12 @@ import org.eu.mmacedo.mars.service.MarsService;
 //import org.springframework.stereotype.Component;
 
 //@Component
-@Path("/rest")
+@Path("/mars")
 public class MarsResource {
 	
 	@POST
     @Produces("text/plain")	
-	@Path("/mars/{command}")
+	@Path("/{command}")
 	public String move(@PathParam("command") String command) {
 		try {
 			String resp = new MarsService().run(command);

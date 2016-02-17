@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Indie+Flower:300,400,500,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.5/chartist.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+      <!-- START CONTENT -->
+
+      <section id="content">
+
+        <!--start container-->
+        <div class="container">
+
+          <div id="portfolio" class="parallax-container">
+            <div class="section no-pad-bot">
+              <div class="container">
+                <br>
+                <br>
+                <h1 class="header center teal-text text-lighten-2">Mars App</h1>
+                <div class="row center">
+                  <h5 class="header col s12 light white-text">Mars Rover Explorer</h5>
+                  <h5 class="header col s12 light white-text">Commands cheat sheet:</h5>
+                  <h5 class="header col s12 teal-text text-lighten-2">M -> Move</h5>
+                  <h5 class="header col s12 teal-text text-lighten-2">L -> Turn 90o Left</h5>
+                  <h5 class="header col s12 teal-text text-lighten-2">R -> Turn 90o Right</h5>
+                </div>
+                <br>
+                <br>
+
+              </div>
+            </div>
+            <div class="parallax"><img src="http://www.exploratorium.edu/mars/images/rover1_br.jpg" alt="Unsplashed background img 1"></div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <ul id="rover-collection" class="collection">
+                <li class="collection-item avatar" id="rover-header">
+                  <i class="mdi-image-grid-on circle light-blue darken-2"></i>
+                  <span class="collection-header">Rover Search</span>
+                  <br/>
+                  <a class="secondary-content btn-floating waves-effect waves-light light-blue darken-2" onclick="document.getElementById('rover-search').elements[0].value = ''"><i class="mdi-content-clear"></i></a>
+                  <form id="rover-search" onsubmit="handleRoverSearch(this);">
+                    <div class="header-search-wrapper">
+                      <i class="mdi-action-search"></i>
+                      <input id="cmd" type="text" name="Search" class="header-search-input z-depth-2" placeholder="Commands" />
+                    </div>
+                  </form>
+                </li>
+                <div id="rover-results"></div>
+              </ul>
+
+            </div>
+          </div>
+
+          <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+          <!-- Floating Action Button -->
+            <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+                <a class="btn-floating btn-large">
+                  <i class="mdi-action-stars"></i>
+                </a>
+                <ul>
+                  <li><a class="btn-floating red" onclick="document.getElementById('rover-results').innerHTML = ''"><i class="mdi-content-clear"></i></a></li>
+                </ul>
+            </div>
+            <!-- Floating Action Button -->
+
+
+        </div>
+        <!--end container-->
+      </section>
+      <!-- END CONTENT -->
+
+    </div>
+    <!-- END WRAPPER -->
+
+  </div>
+  <!-- END MAIN -->
+
+
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- START FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        <span>Copyright © 2016 <a class="grey-text text-lighten-4" href="http://www.mmacedo.eu.org" target="_blank">M2</a> All rights reserved.</span>
+        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://www.mmacedo.eu.org">M2</a></span>
+        </div>
+    </div>
+  </footer>
+    <!-- END FOOTER -->
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.5/chartist.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+  <script src="https://cdn.polyfill.io/v2/polyfill.js?features=fetch,Promise&gated=1"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
